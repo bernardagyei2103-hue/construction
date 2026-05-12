@@ -1,0 +1,351 @@
+.section {
+  padding: 3rem 1rem;
+  background: var(--bg-section-alt);
+  border-top: 1px solid var(--border);
+}
+
+@media (min-width: 768px) {
+  .section {
+    padding: 4rem 1.25rem;
+  }
+}
+
+.inner {
+  max-width: none;
+  margin: 0;
+}
+
+.intro {
+  margin-bottom: 2.5rem;
+  max-width: min(720px, 100%);
+}
+
+.portfolioDetails {
+  margin-bottom: 3rem;
+  border-radius: var(--radius-lg);
+  border: 1px dashed rgba(61, 90, 115, 0.35);
+  background: rgba(255, 255, 255, 0.65);
+  overflow: hidden;
+}
+
+.portfolioSummary {
+  list-style: none;
+  cursor: pointer;
+  padding: 1rem 1.15rem;
+  font-family: var(--font-manrope), system-ui, sans-serif;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--steel);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.portfolioSummary::-webkit-details-marker {
+  display: none;
+}
+
+.portfolioSummary::after {
+  content: "+";
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--brand-yellow, #f2c409);
+}
+
+.portfolioDetails[open] .portfolioSummary::after {
+  content: "−";
+}
+
+.portfolioBlock {
+  padding: 0 1.15rem 1.35rem;
+  max-width: min(920px, 100%);
+  border-top: 1px solid var(--border);
+}
+
+.regionTitle {
+  font-family: var(--font-manrope), system-ui, sans-serif;
+  font-size: 1.08rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  margin: 2rem 0 0.65rem;
+  color: var(--color-primary);
+}
+
+.regionTitle:first-of-type {
+  margin-top: 0;
+}
+
+.regionBody {
+  margin: 0;
+  color: var(--color-secondary);
+  line-height: 1.68;
+}
+
+.regionBody + .regionBody {
+  margin-top: 0.75rem;
+}
+
+.citation {
+  margin: 0.85rem 0 0;
+  font-size: 0.82rem;
+  color: var(--color-muted);
+  line-height: 1.55;
+}
+
+.citation a {
+  color: var(--steel);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.citation a:hover {
+  color: var(--color-primary);
+}
+
+.specialtiesIntro {
+  margin: 2rem 0 0.85rem;
+  font-family: var(--font-manrope), system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 1.02rem;
+  color: var(--color-primary);
+}
+
+.specialties {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 0.65rem;
+}
+
+.specialties li {
+  margin: 0;
+  padding: 0.55rem 0 0.55rem 1rem;
+  border-left: 3px solid var(--color-accent);
+  color: var(--color-secondary);
+  line-height: 1.55;
+}
+
+.closingLead {
+  margin: 2rem 0 0;
+  color: var(--color-secondary);
+  line-height: 1.68;
+}
+
+.featuredLabel {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--steel);
+  margin: 0 0 2.5rem;
+}
+
+.label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--steel);
+  margin: 0 0 1rem;
+}
+
+.title {
+  font-family: var(--font-manrope), system-ui, sans-serif;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  margin: 0 0 1rem;
+  line-height: 1.08;
+}
+
+.lead {
+  margin: 0;
+  color: var(--color-secondary);
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.block {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 1.75rem;
+  align-items: stretch;
+  padding-bottom: 4rem;
+}
+
+.block + .block {
+  padding-top: 4rem;
+  border-top: 1px solid rgba(20, 28, 43, 0.14);
+}
+
+.list > .block:last-child {
+  padding-bottom: 0;
+}
+
+@media (min-width: 900px) {
+  .block {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    column-gap: 3.5rem;
+    row-gap: 2rem;
+  }
+
+  .reverse {
+    direction: rtl;
+  }
+
+  .reverse > * {
+    direction: ltr;
+  }
+}
+
+.figure {
+  position: relative;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--border);
+  box-shadow: var(--shadow-lg);
+  aspect-ratio: 16 / 10;
+  margin: 0;
+  width: 100%;
+  min-width: 0;
+}
+
+@media (min-width: 900px) {
+  .figure {
+    aspect-ratio: auto;
+    height: 100%;
+    min-height: 100%;
+  }
+}
+
+.figureImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 8s var(--ease-out);
+}
+
+.figureImgBridge {
+  /* Favor bridge + lower-left viewpoint; keeps on-photo signage clear of the UI label */
+  object-position: 36% 52%;
+}
+
+.figure:hover .figureImg {
+  transform: scale(1.02);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .figure:hover .figureImg {
+    transform: none;
+  }
+}
+
+.caption {
+  position: absolute;
+  left: 1rem;
+  bottom: 1rem;
+  padding: 0.65rem 0.85rem;
+  background: rgba(15, 23, 32, 0.82);
+  color: var(--surface);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.captionClearOfSign {
+  left: auto;
+  right: 1rem;
+  max-width: min(14rem, calc(100% - 2rem));
+}
+
+.copy {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  min-width: 0;
+}
+
+.projectTitle {
+  font-family: var(--font-manrope), system-ui, sans-serif;
+  font-size: clamp(1.65rem, 2.6vw, 2.35rem);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  margin: 0;
+}
+
+.meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem 1.25rem;
+}
+
+.metaItem {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--forest);
+  padding: 0.35rem 0.65rem;
+  border: 1px solid rgba(47, 79, 63, 0.28);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.85);
+}
+
+.blockquoteGroup {
+  display: grid;
+  gap: 1rem;
+}
+
+.dt {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-muted);
+  margin: 0;
+}
+
+.dd {
+  margin: 0;
+  color: var(--color-secondary);
+}
+
+.metricsRow {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  padding-top: 0.5rem;
+  border-top: 1px solid var(--border);
+}
+
+@media (max-width: 480px) {
+  .metricsRow {
+    grid-template-columns: 1fr;
+  }
+}
+
+.metric {
+  font-family: var(--font-manrope), system-ui, sans-serif;
+}
+
+.metric strong {
+  display: block;
+  font-size: 1.35rem;
+  letter-spacing: -0.02em;
+  color: var(--color-primary);
+}
+
+.metric span {
+  display: block;
+  font-size: 0.78rem;
+  color: var(--color-muted);
+  margin-top: 0.15rem;
+}

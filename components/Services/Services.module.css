@@ -1,0 +1,244 @@
+.section {
+  padding: 3rem 1rem;
+  background: var(--bg-section);
+}
+
+@media (min-width: 768px) {
+  .section {
+    padding: 4rem 1.25rem;
+  }
+}
+
+.inner {
+  max-width: none;
+  margin: 0;
+}
+
+.headerRow {
+  display: grid;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 1.75rem;
+}
+
+.headerLead {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.kicker {
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--steel);
+  margin: 0;
+}
+
+@media (min-width: 768px) {
+  .headerRow {
+    grid-template-columns: minmax(0, 2fr) minmax(0, 2fr);
+    align-items: end;
+    gap: 2rem;
+  }
+
+  .headerLead {
+    align-self: end;
+  }
+}
+
+.title {
+  font-family: var(--font-manrope), system-ui, sans-serif;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  margin: 0;
+  line-height: 1.1;
+  color: var(--panel-navy, #141c2b);
+}
+
+.deck {
+  margin: 0;
+  color: var(--color-secondary);
+  max-width: 48ch;
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+.grid {
+  display: grid;
+  gap: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.35rem;
+  }
+}
+
+@media (min-width: 1100px) {
+  .grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1.5rem;
+  }
+}
+
+.card {
+  --card-delay: 0ms;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow-sm);
+  opacity: 1;
+  animation: none;
+  transition:
+    transform 0.25s var(--ease-out),
+    box-shadow 0.25s var(--ease-out),
+    border-color 0.25s var(--ease-out);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .card {
+    animation: serviceCardEnter 0.55s var(--ease-out) both;
+    animation-delay: var(--card-delay);
+  }
+
+  .card:hover {
+    animation: none;
+  }
+}
+
+@keyframes serviceCardEnter {
+  from {
+    transform: translateY(14px);
+  }
+
+  to {
+    transform: translateY(0);
+  }
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  border-color: rgba(61, 90, 115, 0.22);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .card:hover {
+    transform: none;
+  }
+}
+
+.cardMedia {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  background: #0f1720;
+}
+
+.mediaImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.cardInner {
+  padding: 1.25rem 1.35rem 1.4rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  flex: 1;
+}
+
+.index {
+  font-family: var(--font-manrope), system-ui, sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  color: var(--steel);
+}
+
+.cardTitle {
+  font-family: var(--font-manrope), system-ui, sans-serif;
+  font-size: 1.18rem;
+  font-weight: 700;
+  margin: 0;
+  letter-spacing: -0.02em;
+  color: var(--panel-navy, #141c2b);
+}
+
+.excerpt {
+  margin: 0;
+  color: var(--color-secondary);
+  font-size: 0.9rem;
+  line-height: 1.55;
+  flex: 1;
+}
+
+.expandBtn {
+  align-self: flex-start;
+  margin-top: 0.15rem;
+  padding: 0.45rem 0;
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-family: var(--font-manrope), system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 0.82rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--brand-yellow, #f2c409);
+  border-bottom: 2px solid rgba(242, 196, 9, 0.45);
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.expandBtn:hover {
+  color: var(--color-primary);
+  border-bottom-color: var(--color-primary);
+}
+
+.expandBtn:focus-visible {
+  outline: 2px solid var(--brand-yellow);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.fullWrap {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.4s var(--ease-out);
+}
+
+.fullOpen {
+  grid-template-rows: 1fr;
+}
+
+.fullInner {
+  min-height: 0;
+  overflow: hidden;
+}
+
+.fullText {
+  margin: 0;
+  padding-top: 0.5rem;
+  color: var(--color-secondary);
+  font-size: 0.88rem;
+  line-height: 1.65;
+  border-top: 1px solid var(--border);
+}
+
+.rule {
+  display: block;
+  width: 42px;
+  height: 3px;
+  background: linear-gradient(90deg, var(--brand-yellow, #f2c409), var(--steel));
+  margin-top: 0.35rem;
+  opacity: 0.9;
+}
