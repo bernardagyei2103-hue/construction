@@ -50,6 +50,7 @@ function IconPin() {
 }
 
 const NAV_LINKS = [
+  { href: "#about", label: "About" },
   { href: "#services", label: "Services" },
   { href: "#projects", label: "Projects" },
   { href: "#capabilities", label: "Equipment" },
