@@ -1,4 +1,72 @@
+import Image from "next/image";
 import styles from "./About.module.css";
+
+type BoardMember = {
+  image: string;
+  imageAlt: string;
+  headline: string;
+  subline: string | null;
+  isCeo: boolean;
+};
+
+const PROJECT_BOARD: BoardMember[] = [
+  {
+    image: "/images/board/board-01.png",
+    imageAlt: "Portrait of a project board member in professional office attire",
+    headline: "Programme director",
+    subline: "Major works coordination",
+    isCeo: false,
+  },
+  {
+    image: "/images/board/board-02.png",
+    imageAlt: "Portrait of a project board member in a vehicle cabin",
+    headline: "Operations director",
+    subline: "Field delivery & fleet alignment",
+    isCeo: false,
+  },
+  {
+    image: "/images/board/board-03-ceo-roland-lange.png",
+    imageAlt: "Roland Lange, Chief Executive Officer of RodeMann Infrastructure",
+    headline: "Roland Lange",
+    subline: "Chief Executive Officer",
+    isCeo: true,
+  },
+  {
+    image: "/images/board/board-04.png",
+    imageAlt: "Portrait of a project board member outdoors",
+    headline: "Technical delivery",
+    subline: "Engineering & quality assurance",
+    isCeo: false,
+  },
+  {
+    image: "/images/board/board-05.png",
+    imageAlt: "Portrait of a project board member outdoors with sea view",
+    headline: "Commercial lead",
+    subline: "Contracts & stakeholder interface",
+    isCeo: false,
+  },
+  {
+    image: "/images/board/board-06.png",
+    imageAlt: "Portrait of a project board member in striped office attire",
+    headline: "HSE principal",
+    subline: "Safety & compliance stewardship",
+    isCeo: false,
+  },
+  {
+    image: "/images/board/board-07.png",
+    imageAlt: "Portrait of a project board member in striped shirt outdoors",
+    headline: "Logistics coordinator",
+    subline: "Supply chain continuity",
+    isCeo: false,
+  },
+  {
+    image: "/images/board/board-08.png",
+    imageAlt: "Portrait of a project board member in white shirt outdoors",
+    headline: "Regional projects",
+    subline: "International programme interface",
+    isCeo: false,
+  },
+];
 
 export default function About() {
   return (
@@ -82,6 +150,43 @@ export default function About() {
             <span>Operators, drivers, engineers, technicians, and field support—aligned to delivery.</span>
           </div>
         </aside>
+
+        <div className={styles.boardWrap}>
+          <div className={styles.boardHeader}>
+            <p className={styles.boardKicker}>Governance</p>
+            <h3 className={styles.boardTitle}>Project board</h3>
+            <p className={styles.boardLead}>
+              Executive and programme-facing leadership aligning scopes, approvals, and outcomes to
+              the delivery mandate.
+            </p>
+          </div>
+          <ul className={styles.boardGrid}>
+            {PROJECT_BOARD.map((member) => (
+              <li key={member.image} className={styles.boardCell}>
+                <article
+                  className={member.isCeo ? styles.personCardFeatured : styles.personCard}
+                  aria-label={
+                    member.isCeo ? `${member.headline}, ${member.subline}` : `${member.headline}`
+                  }
+                >
+                  <div className={styles.photoFrame}>
+                    <Image
+                      src={member.image}
+                      alt={member.imageAlt}
+                      fill
+                      className={styles.photo}
+                      sizes="(max-width: 520px) 45vw, (max-width: 900px) 30vw, 160px"
+                    />
+                  </div>
+                  <div className={styles.personMeta}>
+                    <p className={styles.personName}>{member.headline}</p>
+                    {member.subline ? <p className={styles.personRole}>{member.subline}</p> : null}
+                  </div>
+                </article>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
     </section>
   );

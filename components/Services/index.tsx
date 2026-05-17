@@ -9,9 +9,9 @@ const SERVICES: ServiceCopy[] = [
       "Concept through handover—subgrade, base, asphalt, compaction, and finishing engineered for durability.",
     description:
       "We deliver road construction solutions from concept to completion. Our work covers every major stage of road development, including site preparation, subgrade formation, sub-base and base layer construction, asphalt paving, compaction, road finishing, and final handover. We focus on building roads that are durable, efficient, and engineered to perform under demanding environmental conditions.",
-    image: "/images/road-construction.png",
+    image: "/images/img-road-service-card.png",
     imageAlt:
-      "Road construction services overview: paving, compaction, quality delivery pipeline",
+      "Precast concrete box culvert sections staged on aggregate for drainage or underpass installation",
   },
   {
     id: "earth",
@@ -20,8 +20,9 @@ const SERVICES: ServiceCopy[] = [
       "Land clearing, excavation, cut/fill, grading, and embankments coordinated for stable, schedule-safe progress.",
     description:
       "Earthworks form the foundation of every successful project. Our capabilities include land clearing, excavation, cut and fill operations, grading, leveling, embankment construction, and site preparation. By combining technical planning with efficient machinery coordination, we create stable foundations that allow projects to progress safely and on schedule.",
-    image: "/images/img-earthworks-banner.png",
-    imageAlt: "Earthmoving operations and large-scale site preparation",
+    image: "/images/img-earthworks-service-card.png",
+    imageAlt:
+      "Fleet of excavators on a large-scale earthmoving and mining site under open sky",
   },
   {
     id: "material",
