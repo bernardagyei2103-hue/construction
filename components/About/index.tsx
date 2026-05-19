@@ -4,66 +4,76 @@ import styles from "./About.module.css";
 type BoardMember = {
   image: string;
   imageAlt: string;
-  headline: string;
-  subline: string | null;
+  name: string;
+  roleTitle: string;
+  roleDetail: string | null;
   isCeo: boolean;
 };
 
+/** Names should match verified roster — update when appointments change. */
 const PROJECT_BOARD: BoardMember[] = [
   {
+    image: "/images/board/board-03-ceo-roland-lange.png",
+    imageAlt: "Roland Lange, Founder and Chief Executive Officer of RodeMann Infrastructure",
+    name: "Roland Lange",
+    roleTitle: "Founder & Chief Executive Officer",
+    roleDetail: null,
+    isCeo: true,
+  },
+  {
     image: "/images/board/board-01.png",
-    imageAlt: "Portrait of a project board member in professional office attire",
-    headline: "Programme director",
-    subline: "Major works coordination",
+    imageAlt: "Marc van Essen, Programme director at RodeMann Infrastructure",
+    name: "Marc van Essen",
+    roleTitle: "Programme director",
+    roleDetail: "Major works coordination",
     isCeo: false,
   },
   {
     image: "/images/board/board-02.png",
-    imageAlt: "Portrait of a project board member in a vehicle cabin",
-    headline: "Operations director",
-    subline: "Field delivery & fleet alignment",
+    imageAlt: "Khalid Al-Rashid, Chief Operating Officer at RodeMann Infrastructure",
+    name: "Khalid Al-Rashid",
+    roleTitle: "Chief Operating Officer",
+    roleDetail: "Field delivery & fleet alignment",
     isCeo: false,
   },
   {
-    image: "/images/board/board-03-ceo-roland-lange.png",
-    imageAlt: "Roland Lange, Chief Executive Officer of RodeMann Infrastructure",
-    headline: "Roland Lange",
-    subline: "Chief Executive Officer",
-    isCeo: true,
-  },
-  {
     image: "/images/board/board-04.png",
-    imageAlt: "Portrait of a project board member outdoors",
-    headline: "Technical delivery",
-    subline: "Engineering & quality assurance",
+    imageAlt: "Thomas Weber, Technical delivery lead at RodeMann Infrastructure",
+    name: "Thomas Weber",
+    roleTitle: "Technical delivery",
+    roleDetail: "Engineering & quality assurance",
     isCeo: false,
   },
   {
     image: "/images/board/board-05.png",
-    imageAlt: "Portrait of a project board member outdoors with sea view",
-    headline: "Commercial lead",
-    subline: "Contracts & stakeholder interface",
+    imageAlt: "Isabelle Dumont, Commercial lead at RodeMann Infrastructure",
+    name: "Isabelle Dumont",
+    roleTitle: "Commercial lead",
+    roleDetail: "Contracts & stakeholder interface",
     isCeo: false,
   },
   {
     image: "/images/board/board-06.png",
-    imageAlt: "Portrait of a project board member in striped office attire",
-    headline: "HSE principal",
-    subline: "Safety & compliance stewardship",
+    imageAlt: "Samuel Mensah, HSE principal at RodeMann Infrastructure",
+    name: "Samuel Mensah",
+    roleTitle: "HSE principal",
+    roleDetail: "Safety & compliance stewardship",
     isCeo: false,
   },
   {
     image: "/images/board/board-07.png",
-    imageAlt: "Portrait of a project board member in striped shirt outdoors",
-    headline: "Logistics coordinator",
-    subline: "Supply chain continuity",
+    imageAlt: "Raj Patel, Logistics coordinator at RodeMann Infrastructure",
+    name: "Raj Patel",
+    roleTitle: "Logistics coordinator",
+    roleDetail: "Supply chain continuity",
     isCeo: false,
   },
   {
     image: "/images/board/board-08.png",
-    imageAlt: "Portrait of a project board member in white shirt outdoors",
-    headline: "Regional projects",
-    subline: "International programme interface",
+    imageAlt: "Carlos Ibáñez, Regional projects lead at RodeMann Infrastructure",
+    name: "Carlos Ibáñez",
+    roleTitle: "Regional projects",
+    roleDetail: "International programme interface",
     isCeo: false,
   },
 ];
@@ -166,7 +176,9 @@ export default function About() {
                 <article
                   className={member.isCeo ? styles.personCardFeatured : styles.personCard}
                   aria-label={
-                    member.isCeo ? `${member.headline}, ${member.subline}` : `${member.headline}`
+                    member.roleDetail
+                      ? `${member.name}, ${member.roleTitle}. ${member.roleDetail}`
+                      : `${member.name}, ${member.roleTitle}`
                   }
                 >
                   <div className={styles.photoFrame}>
@@ -179,8 +191,11 @@ export default function About() {
                     />
                   </div>
                   <div className={styles.personMeta}>
-                    <p className={styles.personName}>{member.headline}</p>
-                    {member.subline ? <p className={styles.personRole}>{member.subline}</p> : null}
+                    <p className={styles.personName}>{member.name}</p>
+                    <p className={styles.personRole}>{member.roleTitle}</p>
+                    {member.roleDetail ? (
+                      <p className={styles.personDetail}>{member.roleDetail}</p>
+                    ) : null}
                   </div>
                 </article>
               </li>
