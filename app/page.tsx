@@ -1,7 +1,6 @@
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import TrustBar from "@/components/TrustBar";
-import About from "@/components/About";
 import Services from "@/components/Services";
 import Projects from "@/components/Projects";
 import Capabilities from "@/components/Capabilities";
@@ -19,7 +18,6 @@ export default function HomePage() {
       <Navbar />
       <Hero />
       <TrustBar />
-      <About />
       <Services />
       <Projects />
       <Capabilities />

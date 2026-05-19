@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import ConsultationTrigger from "@/components/Consultation/ConsultationTrigger";
 import styles from "./Footer.module.css";
 
@@ -30,10 +31,13 @@ export default function Footer() {
             <p className={styles.colTitle}>Company</p>
             <ul className={styles.links}>
               <li>
-                <a href="#capabilities">Capabilities</a>
+                <Link href="/about">About</Link>
               </li>
               <li>
-                <a href="#safety">Safety &amp; compliance</a>
+                <Link href="/#capabilities">Capabilities</Link>
+              </li>
+              <li>
+                <Link href="/#safety">Safety &amp; compliance</Link>
               </li>
               <li>
                 <ConsultationTrigger className={styles.linkTrigger}>Contact</ConsultationTrigger>
@@ -45,13 +49,13 @@ export default function Footer() {
             <p className={styles.colTitle}>Projects</p>
             <ul className={styles.links}>
               <li>
-                <a href="#projects">Featured programmes</a>
+                <Link href="/#projects">Featured programmes</Link>
               </li>
               <li>
-                <a href="#projects">Highway &amp; earthworks</a>
+                <Link href="/#projects">Highway &amp; earthworks</Link>
               </li>
               <li>
-                <a href="#projects">Bulk logistics yards</a>
+                <Link href="/#projects">Bulk logistics yards</Link>
               </li>
             </ul>
           </nav>
@@ -60,19 +64,19 @@ export default function Footer() {
             <p className={styles.colTitle}>Services</p>
             <ul className={styles.links}>
               <li>
-                <a href="#services">Road construction</a>
+                <Link href="/#services">Road construction</Link>
               </li>
               <li>
-                <a href="#services">Earthworks</a>
+                <Link href="/#services">Earthworks</Link>
               </li>
               <li>
-                <a href="#services">Material supply</a>
+                <Link href="/#services">Material supply</Link>
               </li>
               <li>
-                <a href="#services">Equipment rental &amp; logistics</a>
+                <Link href="/#services">Equipment rental &amp; logistics</Link>
               </li>
               <li>
-                <a href="#services">Drainage systems</a>
+                <Link href="/#services">Drainage systems</Link>
               </li>
             </ul>
           </nav>

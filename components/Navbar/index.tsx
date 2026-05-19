@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { useConsultation } from "@/components/Consultation/ConsultationContext";
 import styles from "./Navbar.module.css";
@@ -49,12 +50,13 @@ function IconPin() {
   );
 }
 
+/** Section anchors use `/#…` so links work from every route (e.g. `/about`). */
 const NAV_LINKS = [
-  { href: "#about", label: "About" },
-  { href: "#services", label: "Services" },
-  { href: "#projects", label: "Projects" },
-  { href: "#capabilities", label: "Equipment" },
-  { href: "#safety", label: "Safety" },
+  { href: "/about", label: "About" },
+  { href: "/#services", label: "Services" },
+  { href: "/#projects", label: "Projects" },
+  { href: "/#capabilities", label: "Equipment" },
+  { href: "/#safety", label: "Safety" },
 ] as const;
 
 const QUICK_FACTS = [
@@ -64,6 +66,7 @@ const QUICK_FACTS = [
 ] as const;
 
 export default function Navbar() {
+  const router = useRouter();
   const { open: openConsultation } = useConsultation();
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
@@ -96,7 +99,7 @@ export default function Navbar() {
   }
 
   function handleSearch() {
-    document.getElementById("services")?.scrollIntoView({ behavior: "smooth" });
+    router.push("/#services");
     closeMenu();
   }
 
@@ -138,9 +141,9 @@ export default function Navbar() {
 
           <nav className={styles.primaryNav} aria-label="Primary">
             {NAV_LINKS.map(({ href, label }) => (
-              <a key={href} href={href} className={styles.primaryLink}>
+              <Link key={href} href={href} className={styles.primaryLink}>
                 {label}
-              </a>
+              </Link>
             ))}
             <button
               type="button"
@@ -236,9 +239,9 @@ export default function Navbar() {
           </button>
           <div className={styles.navLinks}>
             {NAV_LINKS.map(({ href, label }) => (
-              <a key={href} href={href} className={styles.navLink} onClick={closeMenu}>
+              <Link key={href} href={href} className={styles.navLink} onClick={closeMenu}>
                 {label}
-              </a>
+              </Link>
             ))}
             <button
               type="button"
